@@ -1,26 +1,105 @@
 @import "../../assets/Styles/_settings";
+// @use "../../assets/Styles/_resets";
+
 
 .main-navbar {
     .upper-nav {
         padding: 0 150px;
         background-color: $violet;
+        display: flex;
+        justify-content: space-between;
+        
 
-        .left-nav > *,
-        .right-nav > * {
+        .left-nav>*,
+        .right-nav>*,
+        .nav-link {
             display: inline-block;
             padding: 6px 12px;
         }
 
-        img {
+        .left-nav img {
             margin: 0 15px;
+
         }
+
+        .right-nav {
+            img {
+                margin-left: 3px;
+            }
+        }
+
         a,
         span {
             text-decoration: none;
             color: $light;
         }
     }
-}
 
-// left-nav
-// right-nav
+    .main-nav {
+        padding: 20px 0 10px 0;
+        .main-nav-wrapper {
+
+            display: flex;
+            justify-content: space-evenly;
+    
+            h3 {
+                font-size: 2em;
+            }
+
+            .main-nav-links {
+                a { 
+                    color: #222;
+                    text-decoration: none;
+                    
+                }
+
+                .nav-link {
+
+                    display: inline-block;
+                    padding: 10px 20px;
+                    font-family: sans-serif;
+                    &:hover {
+                        color: $danger;
+                        border-bottom: 1px solid $danger;
+                    }
+                }
+                text-align: left;
+            }
+
+            input, button {
+                display: inline-block;
+                
+            }
+    
+            input {
+                color: gray;
+                width: 250px;
+                height: 50px;
+                border-right: none;
+
+                &:focus {
+                    color: #000;
+                    border-color: $danger;
+                    outline: 5px solid #fb2e8630;
+                }
+            }
+    
+            button {
+
+                width: 50px;
+                height: 50px;
+                background-color: $danger;
+                border: none;
+                position: relative;
+                bottom: 2px;
+                
+                img {
+                    position: relative;
+                    right: 5px;
+                }
+
+            }
+        }
+       
+    }
+}
