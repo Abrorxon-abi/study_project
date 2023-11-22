@@ -3,3 +3,29 @@ $violet: #7e33e0;
 $light-violet: #f1f0ff;
 $dark-blue: #151875;
 $light: #fff;
+
+
+%btn {
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    &:hover {
+        filter: brightness(0.8);
+        transform: scale(0.9);
+        
+    }
+
+    &:active {
+        transform: scale(0.6);
+
+    }
+}
+

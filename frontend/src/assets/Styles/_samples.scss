@@ -1,0 +1,22 @@
+@import './settings';
+
+.success-btn {
+    @extend %btn;    
+    background-color: $violet;
+    color: $light;
+
+}
+
+.info-btn {
+    @extend %btn;    
+    background-color: $dark-blue;
+    color: $light;
+
+}
+
+.danger-btn {
+    @extend %btn;    
+    background-color: $danger;
+    color: $light;
+    
+}
