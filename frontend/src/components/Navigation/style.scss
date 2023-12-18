@@ -1,6 +1,5 @@
+@use "../../assets/Styles/_resets";
 @import "../../assets/Styles/_settings";
-// @use "../../assets/Styles/_resets";
-
 
 .main-navbar {
     .upper-nav {
@@ -8,69 +7,69 @@
         background-color: $violet;
         display: flex;
         justify-content: space-between;
-        
 
-        .left-nav>*,
-        .right-nav>*,
+        .upper-left-nav > *,
+        .upper-right-nav > *,
         .nav-link {
             display: inline-block;
             padding: 6px 12px;
         }
-
-        .left-nav img {
+        .nav-link:hover {
+            background-color: rgb(0, 0, 0, 0.2);
+        }
+        .upper-left-nav img {
             margin: 0 15px;
-
         }
-
-        .right-nav {
-            img {
-                margin-left: 3px;
-            }
-        }
-
         a,
         span {
             text-decoration: none;
             color: $light;
         }
+        .upper-right-nav {
+            img {
+                margin-left: 3px;
+            }
+        }
     }
-
-    .main-nav {
+    .bottom-nav {
         padding: 20px 0 10px 0;
-        .main-nav-wrapper {
 
+        .bottom-nav-wrapper {
             display: flex;
             justify-content: space-evenly;
-    
+
             h3 {
-                font-size: 2em;
+                a {
+                    text-decoration: none;
+                    font-size: 1.3em;
+                    color: black;
+                    display: inline-block;
+                }
             }
 
-            .main-nav-links {
-                a { 
+            .bottom-nav-links {
+                text-align: left;
+
+                a {
                     color: #222;
                     text-decoration: none;
-                    
                 }
-
                 .nav-link {
-
                     display: inline-block;
                     padding: 10px 20px;
-                    font-family: sans-serif;
+                    font-family: "Poppins", sans-serif;
+
                     &:hover {
                         color: $danger;
                         border-bottom: 1px solid $danger;
                     }
                 }
-                text-align: left;
             }
 
-            input, button {
+            input,
+            button {
                 display: inline-block;
-                
             }
-    
             input {
                 color: gray;
                 width: 250px;
@@ -78,28 +77,68 @@
                 border-right: none;
 
                 &:focus {
-                    color: #000;
+                    color: black;
                     border-color: $danger;
                     outline: 5px solid #fb2e8630;
                 }
             }
-    
             button {
-
-                width: 50px;
+                width: 55px;
                 height: 50px;
                 background-color: $danger;
                 border: none;
                 position: relative;
                 bottom: 2px;
-                
+                &:hover {
+                    outline: 5px solid #fb2e8630;
+                }
                 img {
                     position: relative;
-                    right: 5px;
+                    right: 3px;
                 }
-
             }
         }
-       
+    }
+}
+
+@media (max-width: 1080px) {
+    .main-navbar {
+        .bottom-nav,
+        .upper-nav {
+            padding: 20px 50px;
+            flex-direction: column;
+            text-align: center;
+            font-size: 0.75em;
+
+            div {
+                a {
+                    display: inline-block;
+                    padding: 10px 20px;
+                }
+            }
+            .bottom-nav-wrapper {
+                input {
+                    border: 1px solid gray;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 670px) {
+    .main-navbar {
+        .upper-nav {
+            .upper-left-nav img {
+                margin: 10px;
+            }
+        }
+
+        .bottom-nav {
+            padding: 5px;
+
+            .bottom-nav-wrapper {
+                flex-direction: column;
+            }
+        }
     }
 }

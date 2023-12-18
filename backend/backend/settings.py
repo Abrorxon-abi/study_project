@@ -41,9 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'furniture',
+    'users',
     'rest_framework',
     'corsheaders',
+    'rest_framework.authtoken',
     'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
 ]
 
 MIDDLEWARE = [
@@ -145,6 +148,18 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
+LOGIN_REDIRECT_URL = 'home_page'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -157,14 +172,6 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         # 'rest_framework.authentication.TokenAuthentication',
     ],
-    'DEFAULT_THROTTLE_CLASSES': [
-        'rest_framework.throttling.AnonRateThrottle',  # for anonymous users
-        'rest_framework.throttling.UserRateThrottle',  # for authenticated users
-    ],
-    'DEFAULT_THROTTLE_RATES': {
-        'anon': '10/minute',  # 10 requests per minute
-        'user': '20/minute',  # 20 requests per minute
-    },
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 2,
 }

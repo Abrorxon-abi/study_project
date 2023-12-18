@@ -1,9 +1,9 @@
+@use "../../assets/Styles/_resets";
 @import "../../assets/Styles/_settings";
-// @use "../../assets/Styles/_resets";
 
 .no-page {
     display: flex;
-    justify-content: center;    
+    justify-content: center;
     align-items: center;
     flex-direction: column;
 
@@ -13,12 +13,11 @@
         text-align: left;
         background-color: $light-violet;
     }
-
     .not-found-text {
         color: $danger;
     }
 
     .brands-img {
-        width: 70%;
+        margin: 100px 0;
     }
 }
