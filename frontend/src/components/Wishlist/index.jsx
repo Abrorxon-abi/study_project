@@ -3,6 +3,7 @@ import { useEffect, useContext } from 'react'
 import { axiosCall } from '../../conf/axios'
 import { BASE_URL, context } from "../../conf/store"
 import { Link } from "react-router-dom"
+import { toast } from "react-toastify"
 
 
 function Wishlist(props) {
@@ -21,9 +22,21 @@ function Wishlist(props) {
         console.log(state)
     }
 
+    async function delItem(itemID) {
+        const data = { furniture_id: itemID, delete_item: true }
+        const response = await axiosCall(`api/furniture/wishlist/`, data, 
+        {
+            "Authorization": "Bearer " + localStorage.getItem("access_token"),
+        }, "POST")
+        console.log(response)
+        toast.success("Deleted from wishlist", {toastId: 15})
+    }
+
     useEffect(() => {
         getWishlist()
     }, [])
+
+
 
 
     return (
@@ -44,11 +57,13 @@ function Wishlist(props) {
                                             alt={item.name}
                                             width={"100%"}
                                         />
-                                        <h2>Name: {item.name}</h2>
-                                        <p>Description: {item.description}</p>
-                                        <p>Category: {item.category}</p>
+                                        <div>
+                                            <h3>Name: {item.name}</h3>
+                                            <p>Description: {item.description}</p>
+                                            <p>Category: {item.category}</p>
+                                        </div>
 
-                                        <span onClick={""} className="del-item">
+                                        <span onClick={delItem} className="del-item">
                                             &times;
                                         </span>
                                     </div>
